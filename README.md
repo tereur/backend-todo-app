@@ -84,24 +84,3 @@ L'application expose une documentation Swagger si disponible. Pour accéder à l
 ```bash
 http://localhost:8000/docs
 ```
-
----
-
-##  Problèmes connus
-
-- Aucune dépendance frontend actuellement incluse.  
-
----
-
-##  Contributions
-
-Les contributions sont les bienvenues ! Ouvrez une issue ou soumettez une pull request.
-
----
-
-##  Licence
-
-Ce projet est sous licence [MIT](LICENSE).
-```
-
-N'hésite pas à personnaliser selon les fonctionnalités spécifiques de ton projet.
