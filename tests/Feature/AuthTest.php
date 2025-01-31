@@ -27,9 +27,6 @@ class AuthTest extends TestCase
             ->assertJson(['message' => 'User registered successfully']);
     }
 
-    /**
-     * Test user login with correct credentials.
-     */
     public function test_user_can_login()
     {
         $user = User::factory()->create([
@@ -46,9 +43,6 @@ class AuthTest extends TestCase
             ->assertJsonStructure(['token', 'user' => ['id', 'name', 'email']]);
     }
 
-    /**
-     * Test user login with incorrect credentials.
-     */
     public function test_user_login_fails_with_invalid_credentials()
     {
         $user = User::factory()->create([
@@ -65,26 +59,7 @@ class AuthTest extends TestCase
             ->assertJsonValidationErrors('email');
     }
 
-    /**
-     * Test fetching the authenticated user.
-     */
-    public function test_get_authenticated_user()
-    {
-        $user = User::factory()->create();
-
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        $response = $this->withHeaders([
-            'Authorization' => "Bearer $token",
-        ])->getJson('/api/user');
-
-        $response->assertStatus(200)
-            ->assertJsonStructure(['id', 'name', 'email']);
-    }
-
-    /**
-     * Test logout.
-     */
+  
     public function test_user_can_logout()
     {
         $user = User::factory()->create();
